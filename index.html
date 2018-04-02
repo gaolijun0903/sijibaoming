@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <title>司机报名</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <script src="lib/flexible.js"></script>
+</head>
+<body>
+	<div id="app" class="appwrapper" v-cloak>
+		<div class="container">
+			<header class="headerbg">
+				<div class="citywrapper">
+					<div class="location" >
+						<span class="locationpng"></span>
+						<span class="city" v-text="citylocation"></span>
+					</div>
+				</div>
+				<h1 class="title">"0佣金+阶梯返利"计划开抢 全国仅47万名额！</h1>
+				<p class="subtitle">
+					全国已有<span class="joinnum" v-for="num in numArr">{{num}}</span>报名成功
+				</p>
+			</header>
+			<div class="inputwrapper ">
+				<ul class="inputlist">
+					<li class="inputitem telnumwrapper">
+						<input type="tel" v-model="telnumInput" placeholder="请填写手机号码"  maxlength="11"/>
+					</li>
+					<li class="inputitem codewrapper imgcodewrapper" v-show="needImgcode">
+						<div class="code-left">
+							<input type="text" v-model="imgcodeInput" placeholder="图形验证码" maxlength="4"/>
+						</div>
+						<div class="code-right " @click="getImgCode">
+							<!--<span class="changeimg">看不清，换一张</span>-->
+							<img ref="imgcode" class="imgcode" :src="imgcodeSrc">
+						</div>
+					</li>
+					<li class="inputitem codewrapper msgcodewrapper" >
+						<div class="code-left">
+							<input type="tel"  v-model="msgcodeInput" placeholder="请填写验证码" maxlength="6"/>
+						</div>
+						<div class="code-right" @click="getmsgcode">
+							<div class="getcodebtn" :class="ablegetmsgcode" v-if="isActive">获取验证码</div>
+							<div class="getcodebtn" v-else="isActive">重新获取<span id="counttime">{{counttime}}</span>s</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="btnwrapper">
+				<ul class="btnlist">
+					<li class="btnitem able">
+						<div class="join">立即开抢</div>
+					</li>
+				</ul>
+			</div>
+			
+			<div class="rulewrapper">
+				<div class="ruletitle" :class="{'active':isShowrule,'noactive':!isShowrule}" @click="showRule">
+					<div class="shotline">―</div>
+					<div class="titletext">加入规则</div>
+					<div class="shotline">―</div>
+				</div>
+				<div class="ruletext" v-show="isShowrule">
+					阿斯蒂芬惊世毒妃 
+					加上的房间诶附
+					近飞机时间
+					是否就书法家违法
+					is的覅伽伽
+					点击发
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=74f1df68a56ecbbdc6be8c1f3b6de523"></script>
+	<script src="lib/vue.min.js"></script>
+	<script src="lib/axios.min.js"></script>
+	<script src="js/index.js"></script>
+</body>
+</html>
