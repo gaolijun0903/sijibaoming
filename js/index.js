@@ -1,6 +1,7 @@
 new Vue({
 	el:'#app',
 	data:{
+		joinsuccess:true,  //是否已经报名，默认未报名
 		citylocation:null,  //所在城市
 		telnumInput:null,   //输入的手机号，后台接口返回后赋值
 	  	msgcodeInput:null,   //输入的短信验证码

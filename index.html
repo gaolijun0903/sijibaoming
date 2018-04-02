@@ -28,7 +28,7 @@
 					全国已有<span class="joinnum" v-for="num in numArr">{{num}}</span>报名成功
 				</p>
 			</header>
-			<div class="inputwrapper ">
+			<div class="inputwrapper " v-show="!joinsuccess">
 				<ul class="inputlist">
 					<li class="inputitem telnumwrapper">
 						<input type="tel" v-model="telnumInput" placeholder="请填写手机号码"  maxlength="11"/>
@@ -53,11 +53,25 @@
 					</li>
 				</ul>
 			</div>
+			<div class="successwrapper"  v-show="joinsuccess">
+				<p class="sucesstitle">您已报名成功</p>
+				<p class="successrank">您是<span class="ranknum">245678</span>位成功</p>
+				<p class="successrank">报名“0佣金+阶梯返利”活动的司机</p>
+				
+			</div>
 			
 			<div class="btnwrapper">
-				<ul class="btnlist">
+				<ul class="btnlist"  v-show="!joinsuccess">
 					<li class="btnitem able">
 						<div class="join">立即开抢</div>
+					</li>
+				</ul>
+				<ul class="btnlist"  v-show="joinsuccess">
+					<li class="btnitem able">
+						<div class="join">上传网约车双证</div>
+					</li>
+					<li class="btnitem able">
+						<div class="join">马上接单</div>
 					</li>
 				</ul>
 			</div>
@@ -69,17 +83,23 @@
 					<div class="shotline">―</div>
 				</div>
 				<div class="ruletext" v-show="isShowrule">
-					阿斯蒂芬惊世毒妃 
-					加上的房间诶附
-					近飞机时间
-					是否就书法家违法
-					is的覅伽伽
-					点击发
+					<ul>
+						<li>1.阿斯蒂芬惊世毒妃 is的覅伽伽是否就书法家违法阿斯蒂芬惊世毒妃 </li>
+						<li>2.加上的房间诶附阿斯蒂芬惊世毒妃is的覅伽伽是否就书法家违法阿斯蒂芬惊世毒妃  </li>
+						<li>3.近飞机时间阿斯蒂芬惊世毒妃 </li>
+						<li>4.is的覅伽伽是否就书法家违法阿斯蒂芬惊世毒妃 </li>
+						<li>5.点击发阿斯蒂芬惊世毒妃 is的覅伽伽是否就书法家违法阿斯蒂芬惊世毒妃 is的覅伽伽是否就书法家违法阿斯蒂芬惊世毒妃 </li>
+						<li>6.阿斯蒂芬惊世毒妃 is的覅伽伽是否就书法家违法阿斯蒂芬惊世毒妃 </li>
+						<li>7.加上的房间诶附阿斯蒂芬惊世毒妃 </li>
+						<li>8.近飞机时间阿斯蒂芬惊世毒妃is的覅伽伽是否就书法家违法阿斯蒂芬惊世毒妃  </li>
+						<li>9.is的覅伽伽是否就书法家违法阿斯蒂芬惊世毒妃 </li>
+						<li>10.点击发阿斯蒂芬惊世毒妃 </li>
+					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
-	
+	<!--ga-->
 	
 	<script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=74f1df68a56ecbbdc6be8c1f3b6de523"></script>
 	<script src="lib/vue.min.js"></script>
